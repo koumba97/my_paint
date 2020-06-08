@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8"/>
+        <title>MY PAINT</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Manjari&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Courier+Prime&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div>
+            <h2>MY PAINT</h2>
+        </div>  
+            
+        <section>
+            <div class="window_details">
+                <div id="file_name"><i class="far fa-file-image"></i> untitled - Paint</div>
+                <div class="buttons">
+                    <div class="button"><i class="fas fa-window-minimize"></i></div>
+                    <div class="button"><i class="far fa-window-maximize"></i></div>
+                    <div class="button"><i class="far fa-window-close"></i></div>
+                </div>
+            </div>
+
+            <div class="window_options">
+                <p><u>F</u>ile</p>
+                <p><u>E</u>dit</p>
+                <p><u>V</u>iew</p>
+                <p><u>I</u>mage</p>
+                <p><u>O</u>ptions</p>
+                <p><u>H</u>elp</p>
+            </div>
+
+            <div style="display:flex;">
+                <div class="tool_box"></div>
+                <canvas id="canvas" height="400" width="600" margin="0"></canvas>
+            </div>
+            <div class="palette"></div>
+        </section>       
+    </body>
+    
+    <script src="https://kit.fontawesome.com/3290406d66.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="my_paint.js"></script>
+
+</html>
