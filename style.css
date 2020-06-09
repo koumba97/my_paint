@@ -1,7 +1,8 @@
 @charset "UTF-8";
 /***GÉNÉRAL***/
 body {
-  background: linear-gradient(90deg, rgba(230, 97, 228, 0.692) 1%, rgba(0, 212, 255, 0.7152777778) 100%);
+  background-image: url("grid_2.jpg");
+  background-repeat: no-repeat;
 }
 
 h2 {
@@ -13,7 +14,6 @@ div {
   font-family: "Pixel Operator";
 }
 
-/***BOUTONS***/
 /***SELECT***/
 select {
   background-color: #ebebeb;
@@ -33,72 +33,123 @@ select:hover {
 }
 
 /***PALETTE COULEUR***/
-.palette_couleurs {
-  background-color: #ebebeb;
-  border-radius: 5px;
-  width: 100px;
-  height: 100px;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 5px;
+.palette {
+  margin-top: 10px;
+  margin-right: 10px;
+  display: flex;
+}
+.palette .select_color {
+  height: 46px;
+  width: 46px;
+  border: ridge #dedede;
+}
+.palette .select_color .first_color {
+  height: 20px;
+  width: 20px;
+  border: ridge #dedede;
   position: relative;
-  left: 555px;
-  z-index: 200;
-  bottom: 645px;
-  display: none;
+  top: 5px;
+  left: 5px;
+  z-index: 2;
 }
-.palette_couleurs .couleur1 {
-  width: 30px;
-  height: 30px;
+.palette .select_color .second_color {
+  height: 20px;
+  width: 20px;
+  border: ridge #dedede;
+  position: relative;
+  left: 16px;
+  bottom: 10px;
+  background-color: white;
+}
+.palette .all_colors {
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+  height: 45px;
+}
+.palette .all_colors .color {
+  height: 20px;
+  width: 20px;
+  border: ridge #dedede;
+}
+.palette .all_colors .color:nth-child(1) {
+  background-color: #e0a3c4;
+}
+.palette .all_colors .color:nth-child(2) {
+  background-color: #ecd6e2;
+}
+.palette .all_colors .color:nth-child(3) {
+  background-color: #3b8ccb;
+}
+.palette .all_colors .color:nth-child(4) {
+  background-color: #f2aadc;
+}
+.palette .all_colors .color:nth-child(5) {
+  background-color: #dbafe4;
+}
+.palette .all_colors .color:nth-child(6) {
+  background-color: #dfa1ee;
+}
+.palette .all_colors .color:nth-child(7) {
+  background-color: #e46ee8;
+}
+.palette .all_colors .color:nth-child(8) {
+  background-color: #a3d6f5;
+}
+.palette .all_colors .color:nth-child(9) {
+  background-color: #cc81ea;
+}
+.palette .all_colors .color:nth-child(10) {
+  background-color: #ecf5d8;
+}
+.palette .all_colors .color:nth-child(11) {
+  background-color: #f0d1f1;
+}
+.palette .all_colors .color:nth-child(12) {
+  background-color: #bbe8ff;
+}
+.palette .all_colors .color:nth-child(13) {
+  background-color: #b350d1;
+}
+.palette .all_colors .color:nth-child(14) {
+  background-color: #f6f6f4;
+}
+.palette .all_colors .color:nth-child(15) {
+  background-color: #a7cce7;
+}
+.palette .all_colors .color:nth-child(16) {
+  background-color: #8587eb;
+}
+.palette .all_colors .color:nth-child(16) {
+  background-color: #0e5b97;
+}
+.palette .all_colors .color:nth-child(17) {
+  background-color: #f7e2f5;
+}
+.palette .all_colors .color:nth-child(18) {
+  background-color: #e9a5d4;
+}
+.palette .all_colors .color:nth-child(19) {
+  background-color: #9b82d3;
+}
+.palette .all_colors .color:nth-child(20) {
+  background-color: #fbf8d5;
+}
+.palette .all_colors .color:nth-child(21) {
+  background-color: #b088fb;
+}
+.palette .all_colors .color:nth-child(22) {
   background-color: black;
-}
-.palette_couleurs .couleur2 {
-  width: 30px;
-  height: 30px;
-  background-color: #247c75;
-}
-.palette_couleurs .couleur3 {
-  width: 30px;
-  height: 30px;
-  background-color: #51b16e;
-}
-.palette_couleurs .couleur4 {
-  width: 30px;
-  height: 30px;
-  background-color: #f475ff;
-}
-.palette_couleurs .couleur5 {
-  width: 30px;
-  height: 30px;
-  background-color: #d643d6;
-}
-.palette_couleurs .couleur6 {
-  width: 30px;
-  height: 30px;
-  background-color: #29c5b8;
-}
-.palette_couleurs .couleur7 {
-  width: 30px;
-  height: 30px;
-  background-color: #ffcd42;
-}
-.palette_couleurs .couleur8 {
-  width: 30px;
-  height: 30px;
-  background-color: #ff7231;
-}
-.palette_couleurs .couleur9 {
-  width: 30px;
-  height: 30px;
-  background-color: #cecece;
 }
 
 /***CANVAS***/
 section {
   padding: 10px;
-  border: ridge #dedede;
+  border: outset #dedede;
   width: 700px;
   background-color: #d7d7d7;
+  margin: auto;
+  margin-top: 50px;
 }
 section .window_details {
   height: 40px;
@@ -111,6 +162,14 @@ section .window_details #file_name {
   font-size: 30px;
   color: white;
   padding-left: 10px;
+  display: flex;
+}
+section .window_details #file_name .logo {
+  height: 30px;
+  width: 20px;
+  margin-right: 10px;
+  background-image: url("paint.png");
+  background-size: cover;
 }
 section .window_details .buttons {
   height: 30px;
@@ -120,7 +179,7 @@ section .window_details .buttons {
   margin: 2px;
 }
 section .window_details .buttons .button {
-  border: ridge #dedede;
+  border: outset #dedede;
   background-color: #dedede;
   height: 25px;
   width: 30px;
@@ -140,22 +199,30 @@ section .window_options p {
   margin: 0px;
   margin-right: 20px;
 }
-section .tool_box {
-  height: 250px;
-  width: 80px;
-  border: ridge #dedede;
-  margin-right: 10px;
-}
-section .palette {
-  margin-top: 10px;
-  width: 250px;
-  height: 60px;
-  border: ridge #dedede;
-  margin-right: 10px;
-}
 section #canvas {
   background-color: white;
   margin-bottom: 10;
+}
+
+/***TOOLBOX***/
+.tool_box {
+  height: 330px;
+  width: 70px;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.tool_box .tool {
+  height: 30px;
+  width: 30px;
+  border: outset #dedede;
+}
+.tool_box .tool:active {
+  height: 34px;
+  width: 34px;
+  background-color: #bababa;
+  border: outset 1px #dedede;
 }
 
 /*# sourceMappingURL=style.css.map */
