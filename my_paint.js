@@ -8,12 +8,23 @@ function(e){
     let posY = mousePos.y;
     draw(canvas, posX, posY);
 });
-let size = 1;
+let size = 5;
 let drawing = false;
 let line = false;
 let eraser = false;
 let brush = true;
 let pencil = false;
+let circle = false;
+let square = false;
+
+let allTools={
+    "brush" : brush, 
+    "pencil" : pencil,
+    "eraser" : eraser,
+    "line" : line, 
+    "circle" : circle, 
+    "square" : square,
+}
 
 function down(){
     drawing = true
@@ -52,26 +63,7 @@ CanvasRenderingContext2D.prototype.roundRect = function (posX, posY, w, h, r) {
     this.closePath();
     return this;
 }
-function draw(canvas, posX, posY){
-    let context = canvas.getContext('2d');
-    if(drawing){
-        if(eraser == true){
-            color='white';
-        }
-        else{
-            color=$('.first_color').css('backgroundColor');
-        }
 
-        if(brush == true){  
-            context.fillStyle=color;
-            context.roundRect(posX, posY, size-1, size-1, 40).fill();
-        }
-        else if(pencil == true){
-            context.fillStyle=color;
-            context.fillRect(posX, posY, size, size).fill();
-        }
-    }
-}
 
 
 
@@ -88,29 +80,115 @@ $('.color').on("click", function(){
 
 
 // TOOLS
+$('.tool').on("click", function(){
+    brush = false;
+    eraser = false;
+    pencil = false;
+    line = false;
+});
 $('.brush').on("click", function(){
     brush = true;
-    eraser = false;
-    pencil = false
 });
 $('.pencil').on("click", function(){
     pencil = true;
-    eraser = false;
-    brush = false;
 });
 $('.eraser').on("click", function(){
     eraser = true;
-    brush = false;
-    pencil = false;
 });
 $('.line').on("click", function(){
     line=true
-    color = 'white';
+});
+$('.square').on("click", function(){
+    square=true
 });
 
+let countLine = 0;
+let beginLineX = 0; let beginLineY = 0;
+let endLineX = 0; let endLineY = 0;
+
+function draw(canvas, posX, posY){
+    let context = canvas.getContext('2d');
+    if(drawing){
+
+        // ERASER
+        if(eraser == true){
+            color='white';
+            context.fillStyle=color;
+            context.roundRect(posX, posY, size-1, size-1, 40).fill();
+        }
+        else{
+            color=$('.first_color').css('backgroundColor');
+        }
+
+        // BRUSH
+        if(brush == true){  
+            context.fillStyle=color;
+            context.roundRect(posX, posY, size-1, size-1, 40).fill();
+        }
+
+        // PENCIL
+        else if(pencil == true){
+            context.fillStyle=color;
+            context.fillRect(posX, posY, size, size).fill();
+        }
+
+        // LINE
+        else if(line == true){
+            console.log(countLine)
+
+            if (countLine==0){
+                beginLineX = posX;
+                beginLineY = posY;
+                countLine++;
+                return;
+            }
+            if (countLine == 1){
+                endLineX = posX 
+                endLineY = posY;
+
+                context.moveTo(beginLineX, beginLineY);
+                context.lineTo(endLineX, endLineY);
+
+                context.strokeStyle = color;
+                context.stroke();
+                countLine=0;
+                return;
+            }
+
+        }
+
+        // SQUARE
+        else if(square == true){
+            // if (countLine==0){
+            //     beginLineX = posX;
+            //     beginLineY = posY;
+            //     countLine++;
+            //     return;
+            // }
+            // if (countLine == 1){
+            //     endLineX = posX 
+            //     endLineY = posY;
+            //     context.strokeStyle = color;
+            //     context.rect(beginLineX,beginLineY,endLineX,endLineY);
+            //     context.stroke();
+            // }
+
+            var ctx = canvas.getContext('2d');
+            ctx.lineWidth = "3";
+            ctx.strokeStyle = "red";
+            ctx.strokeRect(posX, posY, posX, posY);
+            
+        }
+    }
+}
 
 // SIZE
 $('#tool_size').change(function() { 
     size = $(this).val();
     console.log(size)
+});
+
+
+$('#save').on("click", function(){
+    localStorage.setItem("canvasName", canvas.toDataURL());
 });

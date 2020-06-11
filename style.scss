@@ -244,11 +244,94 @@ section{
         height: 30px;
         width: 30px ;
         border: outset  rgb(222, 222, 222);
+        &:active {
+            height: 34px;
+            width: 34px ;
+            background-color: rgb(186, 186, 186);
+            border: outset 1px rgb(222, 222, 222);
+        }
     }
-    .tool:active {
-        height: 34px;
-        width: 34px ;
-        background-color: rgb(186, 186, 186);
-        border: outset 1px rgb(222, 222, 222);
+
+    .brush{
+        background-image: url('pictos/brush.png');
+        background-size: cover;
+        background-size: 80%;
+        background-repeat: no-repeat;
+        background-position: center;
+        &:active{
+            background-size: 65%;
+            background-position: center;
+        }
+    }
+
+    .pencil{
+        background-image: url('pictos/pencil.png');
+        background-size: cover;
+        background-size: 80%;
+        background-repeat: no-repeat;
+        background-position: center;
+        &:active{
+            background-size: 65%;
+            background-position: center;
+        }
+    }
+
+    .eraser{
+        background-image: url('pictos/eraser.png');
+        background-size: cover;
+        background-size: 80%;
+        background-repeat: no-repeat;
+        background-position: center;
+        &:active{
+            background-size: 65%;
+            background-position: center;
+        }
+    }
+
+    .line{
+        background-image: url('pictos/line.png');
+        background-size: cover;
+        background-size: 80%;
+        background-repeat: no-repeat;
+        background-position: center;
+        &:active{
+            background-size: 65%;
+            background-position: center;
+        }
+    }
+
+    .square{
+        background-image: url('pictos/square.png');
+        background-size: cover;
+        background-size: 80%;
+        background-position: center;
+        background-repeat: no-repeat;
+        &:active{
+            background-size: 65%;
+            background-position: center;
+        }
+    }
+
+    .circle{
+        background-image: url('pictos/cercle.png');
+        background-size: cover;
+        background-size: 80%;
+        background-repeat: no-repeat;
+        background-position: center;
+        &:active{
+            background-size: 65%;
+            background-position: center;
+        }
+    }
+
+    .text{
+
+        p{
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 30px;
+            text-align: center;
+            position: relative;
+            bottom: 32px;
+        }
     }
 }

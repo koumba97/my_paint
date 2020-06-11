@@ -10,7 +10,7 @@
     </head>
 
     <body>
-            <div class="undo">undo</div>
+            <div id="save">save</div>
         <section>
             <div class="window_details">
                 <div id="file_name"><div class="logo"></div> untitled - Paint</div>
@@ -34,28 +34,28 @@
                 <div>
                     <div class="tool_box">
                         <div class="tool"></div>
-                        <div class="tool eraser"><i class="fas fa-eraser"></i></div>
+                        <div class="tool eraser"></div>
                         <div class="tool"></div>
-                        <div class="tool pencil"><i class="fas fa-pencil-alt"></i></div>
-                        <div class="tool"></div>
-                        <div class="tool"></div>
-                        <div class="tool line">&#10187</div>
-                        <div class="tool"></div>
-                        <div class="tool cercle"><i class="far fa-circle"></i></div>
+                        <div class="tool pencil"></div>
                         <div class="tool"></div>
                         <div class="tool"></div>
-                        <div class="tool brush"><i class="fas fa-paint-brush"></i></div>
+                        <div class="tool line"></div>
+                        <div class="tool"></div>
+                        <div class="tool circle"></div>
+                        <div class="tool"></div>
+                        <div class="tool"></div>
+                        <div class="tool brush"></div>
+                        <div class="tool"></div>
+                        <div class="tool text"><p>A</p></div>
                         <div class="tool"></div>
                         <div class="tool"></div>
                         <div class="tool"></div>
-                        <div class="tool"></div>
-                        <div class="tool"></div>
-                        <div class="tool square"><i class="far fa-square"></i></div>
+                        <div class="tool square"></div>
                     </div>
 
                     <select id="tool_size">
                         <option value="2">1</option>
-                        <option value="5">5</option>
+                        <option value="5" selected="selected">5</option>
                         <option value="10">10</option>
                         <option value="15">15</option>
                         <option value="20">20</option>
@@ -63,7 +63,7 @@
                         <option value="30">30</option>
                     </select>
                 </div>
-                
+
                 <canvas id="canvas" height="400" width="600" margin="0"></canvas>
             </div>
             <div class="palette">
@@ -105,7 +105,6 @@
         </section>       
     </body>
     
-    <script src="https://kit.fontawesome.com/3290406d66.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="my_paint.js"></script>
 

@@ -224,5 +224,78 @@ section #canvas {
   background-color: #bababa;
   border: outset 1px #dedede;
 }
+.tool_box .brush {
+  background-image: url("pictos/brush.png");
+  background-size: cover;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.tool_box .brush:active {
+  background-size: 65%;
+  background-position: center;
+}
+.tool_box .pencil {
+  background-image: url("pictos/pencil.png");
+  background-size: cover;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.tool_box .pencil:active {
+  background-size: 65%;
+  background-position: center;
+}
+.tool_box .eraser {
+  background-image: url("pictos/eraser.png");
+  background-size: cover;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.tool_box .eraser:active {
+  background-size: 65%;
+  background-position: center;
+}
+.tool_box .line {
+  background-image: url("pictos/line.png");
+  background-size: cover;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.tool_box .line:active {
+  background-size: 65%;
+  background-position: center;
+}
+.tool_box .square {
+  background-image: url("pictos/square.png");
+  background-size: cover;
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.tool_box .square:active {
+  background-size: 65%;
+  background-position: center;
+}
+.tool_box .circle {
+  background-image: url("pictos/cercle.png");
+  background-size: cover;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.tool_box .circle:active {
+  background-size: 65%;
+  background-position: center;
+}
+.tool_box .text p {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 30px;
+  text-align: center;
+  position: relative;
+  bottom: 32px;
+}
 
 /*# sourceMappingURL=style.css.map */
