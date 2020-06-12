@@ -1,16 +1,16 @@
 let canvas = $("#canvas")[0];
 canvas.addEventListener('mousedown', down);
 canvas.addEventListener('mouseup', toggledraw);
-
 canvas.addEventListener('mousemove',
-    function(e){
-        let mousePos= getMousePos(canvas, e);
-        let posX = mousePos.x;
-        let posY = mousePos.y;
-        draw(canvas, posX, posY);
-    }
-);
+function(e){
+    let mousePos= getMousePos(canvas, e);
+    let posX = mousePos.x;
+    let posY = mousePos.y;
+});
 
+let context = canvas.getContext('2d');
+let dragStartLocation;
+let dragging = false;
 let size = 5;
 let drawing = false;
 let line = false;
@@ -19,10 +19,7 @@ let brush = true;
 let pencil = false;
 let circle = false;
 let square = false;
-let chooseColor=false;
-let colorVal;
-let dragging = false;
-
+let chooseColor = false;
 let allTools={
     "brush" : brush, 
     "pencil" : pencil,
@@ -33,10 +30,10 @@ let allTools={
 }
 
 function down(){
-    drawing = true
+    drawing = true;
 }
 function toggledraw(){
-    drawing=false
+    drawing=false;
 }
 
 $('.undo').on("click", function(){
@@ -73,6 +70,30 @@ CanvasRenderingContext2D.prototype.roundRect = function (posX, posY, w, h, r) {
 
 
 
+// DRAG
+function dragStart(e){
+    console.log('heyy')
+    dragging= true;
+    dragStartLocation = getMousePos(canvas, e);
+}
+
+function drag(e){
+    console.log('drag');
+}
+
+function dragStop(e){
+    console.log('dragStop');
+}
+
+function drawLine(e){
+    context.beginPath();
+    context.moveTo(dragStartLocation.posX, dragStartLocation.posY);
+    context.lineTo(position.posX, position.posY);
+    context.stroke();
+}
+
+
+
 // COLORS
 let color="black";
 $('.first_color').css('backgroundColor', color);
@@ -85,18 +106,16 @@ $('.color').on("click", function(){
 
 
 
-
 // TOOLS
 $('.tool').on("click", function(){
     brush = false;
     eraser = false;
     pencil = false;
     line = false;
-    circle = false;
-    square = false;
 });
 $('.brush').on("click", function(){
     brush = true;
+    alert('brush')
 });
 $('.pencil').on("click", function(){
     pencil = true;
@@ -105,31 +124,24 @@ $('.eraser').on("click", function(){
     eraser = true;
 });
 $('.line').on("click", function(){
-    line=true;
+    line=true
 });
 $('.square').on("click", function(){
-    line= false;
-    square=true;
+    square=true
 });
-$('.cercle').on("click", function(){
-    circle=true;
+$('.colors').change(function() { 
+    console.log($(this).val())
+    chooseColor=true
 });
-$('.selectColors').change(function() { 
-    colorVal=$('.selectColors').val();
-    chooseColor=true; 
-});
-
-
 
 let countLine = 0;
 let beginLineX = 0; let beginLineY = 0;
 let endLineX = 0; let endLineY = 0;
-let context = canvas.getContext('2d');
 
 function draw(canvas, posX, posY){
     
     if(drawing){
-
+        console.log(allTools)
         // ERASER
         if(eraser == true){
             color='white';
@@ -137,8 +149,7 @@ function draw(canvas, posX, posY){
             context.roundRect(posX, posY, size-1, size-1, 40).fill();
         }
         else if (chooseColor == true){
-            color=colorVal;
-            //alert(color)
+            color=$('.colors').val();
         }
         else{
             color=$('.first_color').css('backgroundColor');
@@ -146,83 +157,28 @@ function draw(canvas, posX, posY){
 
         // BRUSH
         if(brush == true){  
+            
             context.fillStyle=color;
             context.roundRect(posX, posY, size-1, size-1, 40).fill();
-            return;
         }
 
         // PENCIL
         else if(pencil == true){
             context.fillStyle=color;
             context.fillRect(posX, posY, size, size).fill();
-            return;
         }
 
         // LINE
         else if(line == true){
-            context.strokeStyle = color;
-            context.lineWidth = size;
-            context.lineCap = 'round';
-        
-            canvas.addEventListener('mousedown', dragStart, false);
-            canvas.addEventListener('mousemove', drag, false);
-            canvas.addEventListener('mouseup', dragStop, false);
-            
-            return;
-        }
+           
+         }
 
         // SQUARE
         else if(square == true){
-            context.stroke();
-            context.lineWidth = size;
-            context.strokeStyle = 'pink';
-            context.strokeRect(10, 5, 200, 50);
-            return;
+            
         }
     }
 }
-
-
-
-function getCanvasCoordinates(event) {
-    let x = event.clientX - canvas.getBoundingClientRect().left,
-        y = event.clientY - canvas.getBoundingClientRect().top;
-
-    return {x: x, y: y};
-}
-
-function drawLine(position) {
-    context.beginPath();
-    context.moveTo(dragStartLocation.x, dragStartLocation.y);
-    context.lineTo(position.x, position.y);
-    context.stroke();
-}
-
-function drawSquare(position) {
-    context.beginPath();
-    context.moveTo(dragStartLocation.x, dragStartLocation.y);
-    context.lineTo(position.x, position.y);
-    context.stroke();
-}
-
-function dragStart(event) {
-    dragging = true;
-    dragStartLocation = getCanvasCoordinates(event);
-}
-
-function drag(event) {
-    let position;
-    if (dragging === true) {
-        position = getCanvasCoordinates(event);
-    }
-}
-
-function dragStop(event) {
-    dragging = false;
-    let position = getCanvasCoordinates(event);
-    drawLine(position);
-}
-
 
 
 

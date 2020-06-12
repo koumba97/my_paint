@@ -324,6 +324,29 @@ section{
         }
     }
 
+    .colors{
+        //background-image: url('pictos/colors.png');
+        background-size: cover;
+        background-size: 80%;
+        background-repeat: no-repeat;
+        background-position: center;
+        &:active{
+            background-size: 65%;
+            background-position: center;
+        }
+
+        input{
+            width: 30px;
+            height: 35px;
+            position: relative;
+            right: 3px;
+            bottom: 5px;
+            background-color: transparent;
+            border: none;
+
+        }
+    }
+
     .text{
 
         p{

@@ -290,6 +290,25 @@ section #canvas {
   background-size: 65%;
   background-position: center;
 }
+.tool_box .colors {
+  background-size: cover;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.tool_box .colors:active {
+  background-size: 65%;
+  background-position: center;
+}
+.tool_box .colors input {
+  width: 30px;
+  height: 35px;
+  position: relative;
+  right: 3px;
+  bottom: 5px;
+  background-color: transparent;
+  border: none;
+}
 .tool_box .text p {
   font-family: "Times New Roman", Times, serif;
   font-size: 30px;
