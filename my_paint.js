@@ -118,14 +118,36 @@ $('.selectColors').change(function() {
     colorVal=$('.selectColors').val();
     chooseColor=true; 
 });
+$('.save').on('click', function(){
+    let image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+    window.location.href=image;
+})
 
+function loadImage() {
+    var input, file, fr, img;
 
+    input = document.getElementById('file');
+   
+    file = input.files[0];
+    fr = new FileReader();
+    fr.onload = createImage;
+    fr.readAsDataURL(file);
+
+    function createImage() {
+        img = new Image();
+        img.onload = imageLoaded;
+        img.src = fr.result;
+    }
+
+    function imageLoaded() {
+        context.drawImage(img,0,0, 600, 500);
+    }
+}
 
 let countLine = 0;
 let beginLineX = 0; let beginLineY = 0;
 let endLineX = 0; let endLineY = 0;
 let context = canvas.getContext('2d');
-
 function draw(canvas, posX, posY){
     
     if(drawing){
@@ -175,8 +197,8 @@ function draw(canvas, posX, posY){
         else if(square == true){
             context.stroke();
             context.lineWidth = size;
-            context.strokeStyle = 'pink';
-            context.strokeRect(10, 5, 200, 50);
+            context.strokeStyle = color;
+            context.strokeRect(posX, posY, posX, posY);
             return;
         }
     }

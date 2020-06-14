@@ -10,14 +10,13 @@
     </head>
 
     <body>
-            <div id="save">save</div>
         <section>
             <div class="window_details">
                 <div id="file_name"><div class="logo"></div> untitled - Paint</div>
                 <div class="buttons">
-                    <div class="button"><i class="fas fa-window-minimize"></i></div>
-                    <div class="button"><i class="far fa-window-maximize"></i></div>
-                    <div class="button"><i class="far fa-window-close"></i></div>
+                    <div class="button"></div>
+                    <div class="button"></div>
+                    <div class="button"></div>
                 </div>
             </div>
 
@@ -33,27 +32,21 @@
             <div style="display:flex;">
                 <div>
                     <div class="tool_box">
-                        <div class="tool"></div>
                         <div class="tool eraser"></div>
-                        <div class="tool"></div>
                         <div class="tool pencil"></div>
-                        <div class="tool"></div>
-                        <div class="tool"></div>
                         <div class="tool line"></div>
-                        <div class="tool"></div>
                         <div class="tool circle"></div>
-                        <div class="tool"></div>
                         <div class="tool colors"><input type="color" class="selectColors"/></div>
                         <div class="tool brush"></div>
-                        <div class="tool"></div>
                         <div class="tool text"><p>A</p></div>
-                        <div class="tool"></div>
-                        <div class="tool"></div>
-                        <div class="tool"></div>
                         <div class="tool square"></div>
+                        <div class="tool save"></div>
+                        <label for='file' class="tool import"></label>
+                        <div class="tool upload" id='btnLoad' value='Load' onclick='loadImage();'></div>
+                        <div class="tool"></div>
                     </div>
-
                     
+                    <input style='display:none;' type='file' value='hey' id='file' name='file'/>
 
                     <select id="tool_size">
                         <option value="2">1</option>

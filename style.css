@@ -189,6 +189,33 @@ section .window_details .buttons .button {
   vertical-align: middle;
   align-self: center;
 }
+section .window_details .buttons .button:active {
+  height: 30px;
+  width: 33px;
+  background-color: #bababa;
+  border: outset 1px #dedede;
+}
+section .window_details .buttons .button:nth-child(1) {
+  background-image: url("pictos/min.png");
+  background-size: cover;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+section .window_details .buttons .button:nth-child(2) {
+  background-image: url("pictos/max.png");
+  background-size: cover;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+section .window_details .buttons .button:nth-child(3) {
+  background-image: url("pictos/close.png");
+  background-size: cover;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 section .window_options {
   display: flex;
   font-size: 20px;
@@ -206,7 +233,7 @@ section #canvas {
 
 /***TOOLBOX***/
 .tool_box {
-  height: 330px;
+  height: 250px;
   width: 70px;
   margin-right: 10px;
   display: flex;
@@ -287,6 +314,39 @@ section #canvas {
   background-position: center;
 }
 .tool_box .circle:active {
+  background-size: 65%;
+  background-position: center;
+}
+.tool_box .save {
+  background-image: url("pictos/save.png");
+  background-size: cover;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.tool_box .save:active {
+  background-size: 65%;
+  background-position: center;
+}
+.tool_box .import {
+  background-image: url("pictos/import.png");
+  background-size: cover;
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.tool_box .import:active {
+  background-size: 65%;
+  background-position: center;
+}
+.tool_box .upload {
+  background-image: url("pictos/upload.png");
+  background-size: cover;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.tool_box .upload:active {
   background-size: 65%;
   background-position: center;
 }

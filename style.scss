@@ -203,6 +203,35 @@ section{
                 text-align: center;
                 vertical-align: middle;
                 align-self: center;
+
+                &:active {
+                    height: 30px;
+                    width: 33px ;
+                    background-color: rgb(186, 186, 186);
+                    border: outset 1px rgb(222, 222, 222);
+                }
+            }
+
+            .button:nth-child(1){
+                background-image: url('pictos/min.png');
+                background-size: cover;
+                background-size: 80%;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            .button:nth-child(2){
+                background-image: url('pictos/max.png');
+                background-size: cover;
+                background-size: 80%;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            .button:nth-child(3){
+                background-image: url('pictos/close.png');
+                background-size: cover;
+                background-size: 80%;
+                background-repeat: no-repeat;
+                background-position: center;
             }
         }
 
@@ -232,7 +261,7 @@ section{
 
 /***TOOLBOX***/
 .tool_box{
-    height: 330px;
+    height: 250px;
     width: 70px;
     //border: ridge  rgb(222, 222, 222);
     margin-right: 10px;
@@ -324,6 +353,41 @@ section{
         }
     }
 
+    .save{
+        background-image: url('pictos/save.png');
+        background-size: cover;
+        background-size: 80%;
+        background-repeat: no-repeat;
+        background-position: center;
+        &:active{
+            background-size: 65%;
+            background-position: center;
+        }
+    }
+
+    .import{
+        background-image: url('pictos/import.png');
+        background-size: cover;
+        background-size: 70%;
+        background-repeat: no-repeat;
+        background-position: center;
+        &:active{
+            background-size: 65%;
+            background-position: center;
+        }
+    }
+
+    .upload{
+        background-image: url('pictos/upload.png');
+        background-size: cover;
+        background-size: 60%;
+        background-repeat: no-repeat;
+        background-position: center;
+        &:active{
+            background-size: 65%;
+            background-position: center;
+        }
+    }
     .colors{
         //background-image: url('pictos/colors.png');
         background-size: cover;
